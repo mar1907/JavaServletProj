@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ds.assignment1_2.entity.Flight" table="flight" lazy="false">
+        <meta attribute="class-description">
+            This class contains the employee detail.
+        </meta>
+        <id name="id" type="int" column="id">
+            <generator class="native" />
+        </id>
+        <property name="flightNumber" column="flightNumber" type="string" />
+        <property name="airplaneType" column="airplaneType" type="string" />
+        <property name="departureTime" column="departureTime" type="java.util.Date" />
+        <property name="arrivalTime" column="arrivalTime" type="java.util.Date" />
+        <many-to-one name="departureCity" column="departureCity_id"
+                     class="com.ds.assignment1_2.entity.City" not-null="true" />
+        <many-to-one name="arrivalCity" column="arrivalCity_id"
+                     class="com.ds.assignment1_2.entity.City" not-null="true" />
+    </class>
+</hibernate-mapping>
